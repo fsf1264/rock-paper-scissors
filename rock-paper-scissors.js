@@ -15,6 +15,9 @@ function getHumanChoice(){
     choice = choice.toLowerCase()
     return choice
 }
+function playGame(){
+let humanScore = 0
+let computerScore = 0
 function playRound(humanChoice, computerChoice){
 if      (
         humanChoice === 'rock' && computerChoice === 'rock' 
@@ -33,7 +36,6 @@ else if(
 {
     humanScore++
     console.log('Win! You get one point')
-    console.log(humanScore)
 }
 else if(
         computerChoice === 'rock' && humanChoice === 'scissors' 
@@ -43,11 +45,14 @@ else if(
 {
     computerScore++
     console.log('Loss! Your opponent gets one point')
-    console.log(computerScore)
 }
 }
-let humanScore = 0
-let computerScore = 0
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection)
+for (let i = 0; i < 5; i++) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection)
+    console.log(`Your score: ${humanScore}
+Your opponent\'s score: ${computerScore}`)
+}
+}
+playGame()
