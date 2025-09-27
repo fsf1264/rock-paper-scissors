@@ -25,7 +25,12 @@ if      (
         humanChoice === 'scissors' && computerChoice === 'scissors'
         )
 {
-    console.log('Draw! No one wins.')
+    console.log('Draw! No one wins. Play again')
+    console.log(`Your score: ${humanScore}
+Your opponent\'s score: ${computerScore}`)
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection)
 }
 
 else if(
