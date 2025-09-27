@@ -28,9 +28,9 @@ if      (
     console.log('Draw! No one wins. Play again')
     console.log(`Your score: ${humanScore}
 Your opponent\'s score: ${computerScore}`)
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection)
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice)
 }
 
 else if(
@@ -53,9 +53,9 @@ else if(
 }
 }
 for (let i = 0; i < 5; i++) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection)
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice)
     console.log(`Your score: ${humanScore}
 Your opponent\'s score: ${computerScore}`)
 }
