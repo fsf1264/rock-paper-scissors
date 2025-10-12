@@ -13,6 +13,7 @@ function getComputerChoice(){
         return "scissors"
     }
 }
+
 function playGame(){
 let humanScore = 0
 let computerScore = 0
@@ -58,18 +59,22 @@ else if(
     processResult('loss')
 }
 }
-rock.addEventListener('click',() =>{
+function getHumanChoice(){
+    let humanChoice
+    rock.addEventListener('click',() =>{
     humanChoice = 'rock'
     playRound(humanChoice, getComputerChoice())
-})
-paper.addEventListener('click',() =>{
+    })
+    paper.addEventListener('click',() =>{
     humanChoice = 'paper'
     playRound(humanChoice, getComputerChoice())
-})
-scissors.addEventListener('click',() =>{
+    })
+    scissors.addEventListener('click',() =>{
     humanChoice = 'scissors'
     playRound(humanChoice, getComputerChoice())
-})
+    })
+}
+getHumanChoice()
 //for (let i = 0; i < 5; i++) {
     //let humanChoice = getHumanChoice();
     //let computerChoice = getComputerChoice();
