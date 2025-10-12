@@ -52,12 +52,12 @@ else if(
     console.log('Loss! Your opponent gets one point')
 }
 }
-for (let i = 0; i < 5; i++) {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice)
-    console.log(`Your score: ${humanScore}
-Your opponent\'s score: ${computerScore}`)
-}
+//for (let i = 0; i < 5; i++) {
+    //let humanChoice = getHumanChoice();
+    //let computerChoice = getComputerChoice();
+    //playRound(humanChoice, computerChoice)
+    //console.log(`Your score: ${humanScore}
+////Your opponent\'s score: ${computerScore}`)
+//}
 }
 playGame()
