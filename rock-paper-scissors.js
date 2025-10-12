@@ -1,3 +1,6 @@
+const rock = document.querySelector('#btnrock')
+const paper = document.querySelector('#btnpaper')
+const scissors = document.querySelector('#btnscissors')
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3 + 1)
     if (choice === 1){
@@ -9,11 +12,6 @@ function getComputerChoice(){
     else{
         return "scissors"
     }
-}
-function getHumanChoice(){
-    let choice = prompt("Pick rock, paper or scissors")
-    choice = choice.toLowerCase()
-    return choice
 }
 function playGame(){
 let humanScore = 0
@@ -28,9 +26,6 @@ if      (
     console.log('Draw! No one wins. Play again')
     console.log(`Your score: ${humanScore}
 Your opponent\'s score: ${computerScore}`)
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice)
 }
 
 else if(
@@ -41,6 +36,8 @@ else if(
 {
     humanScore++
     console.log('Win! You get one point')
+    console.log(`Your score: ${humanScore}
+Your opponent\'s score: ${computerScore}`)
 }
 else if(
         computerChoice === 'rock' && humanChoice === 'scissors' 
@@ -50,8 +47,22 @@ else if(
 {
     computerScore++
     console.log('Loss! Your opponent gets one point')
+    console.log(`Your score: ${humanScore}
+Your opponent\'s score: ${computerScore}`)
 }
 }
+rock.addEventListener('click',() =>{
+    humanChoice = 'rock'
+    playRound(humanChoice, getComputerChoice())
+})
+paper.addEventListener('click',() =>{
+    humanChoice = 'paper'
+    playRound(humanChoice, getComputerChoice())
+})
+scissors.addEventListener('click',() =>{
+    humanChoice = 'scissors'
+    playRound(humanChoice, getComputerChoice())
+})
 //for (let i = 0; i < 5; i++) {
     //let humanChoice = getHumanChoice();
     //let computerChoice = getComputerChoice();
