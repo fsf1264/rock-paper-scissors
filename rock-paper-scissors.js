@@ -60,4 +60,4 @@ else if(
 ////Your opponent\'s score: ${computerScore}`)
 //}
 }
-playGame()
+playGame() 
