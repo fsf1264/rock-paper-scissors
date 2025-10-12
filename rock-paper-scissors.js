@@ -16,6 +16,21 @@ function getComputerChoice(){
 function playGame(){
 let humanScore = 0
 let computerScore = 0
+function processResult(result){
+    if (result === 'draw'){
+        console.log('Draw! No one wins. Play again')
+    }
+    else if (result === 'win'){
+        humanScore++
+        console.log('Win! You get one point')
+    }
+    else if (result === 'loss'){
+        computerScore++
+        console.log('Loss! Your opponent gets one point')
+    }
+            console.log(`Your score: ${humanScore}
+Your opponent\'s score: ${computerScore}`)
+}
 function playRound(humanChoice, computerChoice){
 if      (
         humanChoice === 'rock' && computerChoice === 'rock' 
@@ -23,9 +38,7 @@ if      (
         humanChoice === 'scissors' && computerChoice === 'scissors'
         )
 {
-    console.log('Draw! No one wins. Play again')
-    console.log(`Your score: ${humanScore}
-Your opponent\'s score: ${computerScore}`)
+    processResult('draw')
 }
 
 else if(
@@ -34,10 +47,7 @@ else if(
         humanChoice === 'scissors' && computerChoice === 'paper'
         )
 {
-    humanScore++
-    console.log('Win! You get one point')
-    console.log(`Your score: ${humanScore}
-Your opponent\'s score: ${computerScore}`)
+    processResult('win')
 }
 else if(
         computerChoice === 'rock' && humanChoice === 'scissors' 
@@ -45,10 +55,7 @@ else if(
         computerChoice === 'scissors' && humanChoice === 'paper'
         )
 {
-    computerScore++
-    console.log('Loss! Your opponent gets one point')
-    console.log(`Your score: ${humanScore}
-Your opponent\'s score: ${computerScore}`)
+    processResult('loss')
 }
 }
 rock.addEventListener('click',() =>{
