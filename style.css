@@ -1,11 +1,16 @@
 body{
     box-sizing: border-box;
 }
-.choice-title{
+.choice-title, .stats{
     width: 400px;
     margin: 0 auto;
     text-align: center;
     font-size: 36px;
+    padding: 20px;
+}
+.stats{
+    font-size: 24px;
+    width: 500px;
 }
 .buttons{
     width: 400px;

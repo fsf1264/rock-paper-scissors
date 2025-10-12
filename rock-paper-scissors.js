@@ -1,6 +1,17 @@
 const rock = document.querySelector('#btnrock')
 const paper = document.querySelector('#btnpaper')
 const scissors = document.querySelector('#btnscissors')
+const stats = document.querySelector('.stats')
+const resultDiv = document.createElement('div')
+const humanScoreDiv = document.createElement('div')
+const computerScoreDiv = document.createElement('div')
+const humanChoiceDiv = document.createElement('div')
+const computerChoiceDiv = document.createElement('div')
+stats.appendChild(resultDiv)
+stats.appendChild(humanScoreDiv)
+stats.appendChild(computerScoreDiv)
+stats.appendChild(humanChoiceDiv)
+stats.appendChild(computerChoiceDiv)
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3 + 1)
     if (choice === 1){
@@ -17,20 +28,22 @@ function getComputerChoice(){
 function playGame(){
 let humanScore = 0
 let computerScore = 0
-function processResult(result){
+function processResult(result, humanChoice, computerChoice){
     if (result === 'draw'){
-        console.log('Draw! No one wins. Play again')
+        resultDiv.textContent = 'Draw! No one wins. Play again'
     }
     else if (result === 'win'){
         humanScore++
-        console.log('Win! You get one point')
+        resultDiv.textContent = 'Win! You get one point'
     }
     else if (result === 'loss'){
         computerScore++
-        console.log('Loss! Your opponent gets one point')
+        resultDiv.textContent = 'Loss! Your opponent gets one point'
     }
-            console.log(`Your score: ${humanScore}
-Your opponent\'s score: ${computerScore}`)
+    humanScoreDiv.textContent = `Your score: ${humanScore}`
+    computerScoreDiv.textContent = `Your opponent\'s score: ${computerScore}`
+    humanChoiceDiv.textContent = `You chose: ${humanChoice}`
+    computerChoiceDiv.textContent = `Your opponent chose: ${computerChoice}`
 }
 function playRound(humanChoice, computerChoice){
 if      (
@@ -39,7 +52,7 @@ if      (
         humanChoice === 'scissors' && computerChoice === 'scissors'
         )
 {
-    processResult('draw')
+    processResult('draw', humanChoice, computerChoice)
 }
 
 else if(
@@ -48,7 +61,7 @@ else if(
         humanChoice === 'scissors' && computerChoice === 'paper'
         )
 {
-    processResult('win')
+    processResult('win', humanChoice, computerChoice)
 }
 else if(
         computerChoice === 'rock' && humanChoice === 'scissors' 
@@ -56,7 +69,7 @@ else if(
         computerChoice === 'scissors' && humanChoice === 'paper'
         )
 {
-    processResult('loss')
+    processResult('loss', humanChoice, computerChoice)
 }
 }
 function getHumanChoice(){
