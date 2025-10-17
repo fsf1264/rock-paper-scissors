@@ -16,7 +16,7 @@ body{
     width: 400px;
     margin: 0 auto;
 }
-.buttons button{
+.button{
     text-align: center;
     display: inline;
     width: 100px;
