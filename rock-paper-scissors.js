@@ -21,6 +21,7 @@ let humanScore = 0
 let computerScore = 0
 function getHumanChoice(){
     let humanChoice
+    if(roundsPlayed < 5){
     rock.addEventListener('click',() =>{
     humanChoice = 'rock'
     playRound(humanChoice, getComputerChoice())
@@ -33,6 +34,7 @@ function getHumanChoice(){
     humanChoice = 'scissors'
     playRound(humanChoice, getComputerChoice())
     })
+    }
 }
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3 + 1)
@@ -46,11 +48,22 @@ function getComputerChoice(){
         return "scissors"
     }
 }
-function processResult(result, humanChoice, computerChoice){
+/*function restartGame(){
+    resultDiv.style.fontSize = '24px'
+    restart.style.display = 'none'
+    roundsPlayedDiv.style.display = `none`
+    resultDiv.style.display = 'none'
+    humanScoreDiv.style.display = 'none'
+    computerScoreDiv.style.display = 'none'
+    roundsPlayed = 0
+    humanScore = 0
+    computerScore = 0
+    getHumanChoice()
+
+}*/
+function processResult(result){
     if(roundsPlayed === 6){
         roundsPlayed = 5
-        restart.textContent = 'Play again!'
-        restart.style.display = 'inline'
         resultDiv.style.fontSize = '36px'
         if(humanScore > computerScore){
             resultDiv.textContent = 'Victory!'
@@ -58,8 +71,16 @@ function processResult(result, humanChoice, computerChoice){
         else{
             resultDiv.textContent = 'Defeat!'
         }
+        restart.textContent = 'Play again!'
+        restart.style.display = 'inline'
+        restart.addEventListener('click',() =>{
+        restartGame()})
     }
     else {
+    roundsPlayedDiv.style.display = `block`
+    resultDiv.style.display = 'block'
+    humanScoreDiv.style.display = 'block'
+    computerScoreDiv.style.display = 'block'
     if (result === 'draw'){
         resultDiv.textContent = 'Draw! No one wins. Play again'
     }
@@ -83,7 +104,7 @@ if      (
         humanChoice === 'scissors' && computerChoice === 'scissors'
         )
 {
-    processResult('draw', humanChoice, computerChoice)
+    processResult('draw')
 }
 
 else if(
@@ -92,7 +113,7 @@ else if(
         humanChoice === 'scissors' && computerChoice === 'paper'
         )
 {
-    processResult('win', humanChoice, computerChoice)
+    processResult('win')
     roundsPlayed++
 }
 else if(
@@ -101,7 +122,7 @@ else if(
         computerChoice === 'scissors' && humanChoice === 'paper'
         )
 {
-    processResult('loss', humanChoice, computerChoice)
+    processResult('loss')
     roundsPlayed++
 }
 
