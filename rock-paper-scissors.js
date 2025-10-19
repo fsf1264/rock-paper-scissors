@@ -11,6 +11,10 @@ stats.appendChild(roundsPlayedDiv)
 stats.appendChild(resultDiv)
 stats.appendChild(humanScoreDiv)
 stats.appendChild(computerScoreDiv)
+resultDiv.style.margin, 
+humanScoreDiv.style.margin, 
+computerScoreDiv.style.margin, 
+roundsPlayedDiv.style.margin = '0 auto'  
 function playGame(){
 let roundsPlayed = 1
 let humanScore = 0
