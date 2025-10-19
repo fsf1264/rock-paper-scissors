@@ -1,2 +1,3 @@
 This is the first project where I test my javascript skills. It was not that complicated to make, although I think that it's okay for my first project.
-It works entirely in the browser console, however I'm looking forward to updating it and making graphic interface for it after I learn how to interact with DOM. I will update the README file as soon as I do that.
+It works entirely in the browser console, however I'm looking forward to updating it and making graphic interface for it after I learn how to interact with DOM. 
+Update: I have reworked the project so it has UI, this helped me practice my skill of working with DOM and learn git branching.
